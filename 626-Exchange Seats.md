@@ -32,15 +32,9 @@ If the number of students is odd, there is no need to change the last one's seat
 
 A table with 'id' and 'student' as columns are given and using the following approach we can swap the id values :
 
-1. **Using  CASE :**  See <a href="https://github.com/saiabhishekgv/LeetCode_Database/blob/master/627-Swap%20Salary.md#leetcode-solution-"> Leetcode solution </a>. It can be expandable, if we have more than 2 variables to swap.
+1. **Using  CASE :**  See <a href="https://github.com/saiabhishekgv/LeetCode_Database/blob/master/626-Exchange%20Seats.md#leetcode-solution-"> Leetcode solution Approach 1</a>. It can be expandable, if we have more than 2 variables to swap.
 
-2. **Using  XOR :** If we *xor* a number with the same number it will cancel out to 0. Using this concept, Get the ascii value of 'f' and 'm' and do xor with value of sex column. Query would be :
-
-  `update salary set sex = CHAR(ASCII('f') ^ ASCII('m') ^ ASCII(sex));`
-
-3. **Using  IF :** Same as approach 1 ( Using case ) but here we have only two variables to swap. Hence, using a IF would be a better choice. `` IF ( expression, True, False )``  is the set action to be performed. Query would be :
-
-  `UPDATE salary SET sex = IF(sex = 'm', 'f', 'm');`
+2. **Using  XOR and COALESCE() :** If we *xor* a number with the same number it will cancel out to 0. Using this concept, Get the ascii value of 'f' and 'm' and do xor with value of sex column. See <a href="https://github.com/saiabhishekgv/LeetCode_Database/blob/master/626-Exchange%20Seats.md#leetcode-solution-"> Leetcode solution Approach 2</a>.
 
 
 ## Leetcode solution :
@@ -78,7 +72,7 @@ For students with odd id, the new id is (id+1) after switch unless it is the las
   ORDER BY id ASC;
   `
 
-*Approach II:* **Using bit manipulation and COALESCE() **
+*Approach II:* **Using bit manipulation and COALESCE()**
 
 *Algorithm*:  Bit manipulation expression  `(id+1)^1-1` can calculate the new id after switch.
 
@@ -110,7 +104,7 @@ Then, we can make a temp table and join seat with this table like below.
   | 4  | Green   | 3  | Emerson |
   | 5  | Jeames  |    |         |
 
-Note:The first two columns are from s1 and the last two are from s2.
+Note: The first two columns are from s1 and the last two are from s2.
 
 At last, we can output s1.id and s2.student. However, the s2.student is NULL for seat id '5' but s1.student is right. Thus, we we can use function COALESCE() to generate the correct output for the last record.
 
