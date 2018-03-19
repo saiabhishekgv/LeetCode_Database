@@ -52,9 +52,9 @@ For students with odd id, the new id is (id+1) after switch unless it is the las
       seat
   `
 
-  Then, we can use the CASE statement and MOD() function to alter the seat id of each student.
+Then, we can use the CASE statement and MOD() function to alter the seat id of each student.
 
-  *MySQL* :
+*MySQL* :
 
   `SELECT
       (CASE
