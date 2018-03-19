@@ -1,3 +1,5 @@
+# 627 Swap Salary
+
 Given a table salary, such as the one below, that has m=male and f=female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a single update query and no intermediate temp table.
 For example:
 
@@ -17,11 +19,15 @@ After running your query, the above salary table should have the following rows:
 | 3  | C    | f   | 5500   |
 | 4  | D    | m   | 500    |
 
-Explanation :
+## Explanation :
+
+A table with 'sex' as one of its column is given and using the following approach we can swap this values :
+
+1. See Leetcode solution down below. It can be expandable, if we have more than 2 variables to swap.
+2. 
 
 
-
-** Leetcode solution** :
+## Leetcode solution :
 
 *Approach*: **Using UPDATE and CASE...WHEN [Accepted]**
 
